@@ -19,7 +19,7 @@ const commands: Record<string, string[]> = {
     "│  Jithu Girish                       │",
     "│  Full-Stack & Flutter Developer     │",
     "├─────────────────────────────────────┤",
-    "│  CSE Student at KTU University      │",
+    "│  CSE Graduate from KTU University   │",
     "│  R&D Lead at PRODDEC                │",
     "└─────────────────────────────────────┘",
   ],

@@ -58,8 +58,15 @@ export function CustomCursor() {
     }
   }, [cursorX, cursorY])
 
+  const [isMounted, setIsMounted] = useState(false)
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (!isMounted) return null
+
   // Hide on touch devices
-  if (typeof window !== "undefined" && "ontouchstart" in window) {
+  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
     return null
   }
 

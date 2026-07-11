@@ -11,7 +11,7 @@ export function Hero() {
       className="min-h-screen flex items-center relative overflow-hidden"
     >
       {/* Main content container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-24 w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8  w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[70vh]">
           {/* Left side - Text content */}
           <div className="flex flex-col justify-center">
@@ -87,12 +87,12 @@ export function Hero() {
               <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
               
               {/* Profile image with grayscale effect */}
-              <div className="relative w-[340px] h-[450px] sm:w-[400px] sm:h-[550px] md:w-[550px] md:h-[700px] lg:w-[700px] lg:h-[850px] overflow-hidden rounded-2xl border border-border/50">
+              <div className="relative w-full max-w-[340px] h-[450px] sm:max-w-none sm:w-[400px] sm:h-[550px] md:w-[550px] md:h-[700px] lg:w-[700px] lg:h-[850px] overflow-hidden rounded-2xl border border-border/50 mx-auto">
                 <div className="absolute inset-0 bg-linear-to-br from-muted/50 to-muted/20" />
                 <motion.img
                   src="/JithuGirish.png"
                   alt="Jithu Girish"
-                  className="w-full h-full object-cover opacity-90 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-90 grayscale transition-all duration-700"
                   initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 0.9 }}
                   transition={{ duration: 1.5, ease: "easeOut" }}

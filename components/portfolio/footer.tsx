@@ -43,10 +43,10 @@ export function Footer() {
             <motion.a
               href="#home"
               className="flex items-center gap-2 group max-w-fit"
-              whileHover={{ x: 5 }}
+               
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold text-lg border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                <span>J</span>
+              <div className="flex items-center overflow-clip justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold text-lg border border-primary/20 group-hover:bg-gray group-hover:text-primary-foreground transition-all duration-300">
+                <img src="./JithuGirish.png" alt="Logo" width={40} height={40} />
               </div>
               <span className="text-xl font-bold text-foreground">Jithu Girish</span>
             </motion.a>

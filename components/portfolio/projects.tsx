@@ -25,7 +25,6 @@ const projects = [
     tags: ["Flutter", "Project IDX", "Dart"],
     type: "mobile",
     image: "/projects/personal/app/pdfly (3).png",
-    liveUrl: "#",
     githubUrl: "https://github.com/jithugirish/pdfly",
   },
   {
@@ -55,7 +54,7 @@ const projects = [
     tags: ["HTML", "CSS", "JS", "Firebase"],
     type: "web",
     image: "/projects/personal/web/ecolife.png",
-    liveUrl: "https://demo.example.com/ecolife",
+    
     githubUrl: "https://github.com/jithugirish/ecolife",
   },
   {
@@ -65,7 +64,6 @@ const projects = [
     tags: ["React.js", "Firebase Realtime DB"],
     type: "web",
     image: "/projects/personal/web/park (1).png",
-    liveUrl: "#",
     githubUrl: "https://github.com/jithugirish/parkalot",
   },
   {
@@ -75,18 +73,15 @@ const projects = [
     tags: ["Flutter", "Firebase", "Collaboration"],
     type: "mobile",
     image: "/projects/personal/app/teamup.jpeg",
-    liveUrl: "#",
     githubUrl: "https://github.com/jithugirish/teamup",
   },
   {
     title: "Surge",
     description:
       "A comprehensive management system for organizational events and member achievements.",
-    tags: ["Next.js", "PostgreSQL", "Tailwind CSS"],
+    tags: ["React Native", "Firestore", "Tailwind CSS"],
     type: "client",
     image: "/projects/client/surge.jpeg",
-    liveUrl: "#",
-    githubUrl: "#",
     rating: 5,
   },
 ]
@@ -105,12 +100,13 @@ export function Projects() {
   const clientProjects = projects.filter(p => p.type === "client")
 
   return (
-    <section id="projects" className="py-24 md:py-32 relative">
+    <section id="projects" className="py-12 md:py-20 relative">
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
       <div ref={ref} className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
+
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -317,20 +313,28 @@ function ProjectCard({
             </span>
           ))}
         </div>
-
+        
         <div className="flex items-center gap-3">
-          <Button asChild variant="outline" size="sm" className="gap-2 border-border hover:border-primary hover:text-primary">
+          {project.liveUrl?
+            <Button asChild variant="outline" size="sm" className="gap-2 border-border hover:border-primary hover:text-white">
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-4 h-4" />
               Live Demo
             </a>
           </Button>
-          <Button asChild variant="ghost" size="sm" className="gap-2 hover:text-primary">
+          :null
+          }
+          {
+            project.githubUrl?
+             <Button asChild variant="ghost" size="sm" className="gap-2 hover:text-white">
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4" />
               Code
             </a>
           </Button>
+          :null
+          }
+         
         </div>
       </div>
     </TiltCard>

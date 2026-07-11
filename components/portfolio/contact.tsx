@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { Mail, MapPin, Send, CheckCircle, Loader2 } from "lucide-react"
+import { Mail, MapPin, Send, CheckCircle, Loader2,Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -46,7 +46,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
+    <section id="contact" className="py-12 md:py-20 relative">
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
       
@@ -106,7 +106,9 @@ export function Contact() {
                 whileHover={{ x: 8 }}
               >
                 <div className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <span className="text-xl">📞</span>
+                  <span className="text-xl">
+                    <Phone className="w-5 h-5"/>
+                  </span>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>

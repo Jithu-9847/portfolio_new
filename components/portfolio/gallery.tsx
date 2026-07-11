@@ -54,7 +54,7 @@ export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-secondary/30 relative">
+    <section id="gallery" className="py-12 md:py-20 bg-secondary/30 relative">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -75,7 +75,7 @@ export function Gallery() {
         </motion.div>
 
         {/* Gallery Collage Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[1200px] md:h-[600px] lg:h-[700px]">
+        <div className="grid grid-cols-1 grid-rows-6 md:grid-cols-3 md:grid-rows-3 gap-4 h-[1200px] md:h-[600px] lg:h-[700px]">
           {galleryItems.map((item, index) => {
             // Define specific spans for collage effect (mapping to 6 items now)
             const spans = [

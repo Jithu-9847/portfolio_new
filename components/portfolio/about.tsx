@@ -32,7 +32,7 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="about" className="py-24 md:py-32 relative">
+    <section id="about" className="py-12 md:py-20 relative">
       {/* Subtle gradient accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
       
@@ -59,7 +59,7 @@ export function About() {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m Jithu Girish, a passionate Full-Stack Web Developer and Flutter App Developer currently pursuing Computer Science Engineering at KTU University. I love building modern websites, exploring AI technologies, and creating user-focused digital experiences.
+              I&apos;m Jithu Girish, a passionate Full-Stack Web Developer and Flutter App Developer who recently graduated with a degree in Computer Science Engineering from KTU University. I love building modern websites, exploring AI technologies, and creating user-focused digital experiences.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               I believe great code deserves great design. I focus on creating intuitive, accessible interfaces.
@@ -107,7 +107,7 @@ export function About() {
                   </div>
                   <p className="text-sm text-muted-foreground mb-2">KTU University</p>
                   <p className="text-sm text-muted-foreground">
-                    Currently pursuing my B.Tech in Computer Science Engineering, focusing on software development and systems architecture.
+                    Graduated with a B.Tech in Computer Science Engineering, with a focus on software development and systems architecture.
                   </p>
                 </div>
                 <div className="relative pl-6 border-l border-border">

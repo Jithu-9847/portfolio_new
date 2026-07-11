@@ -23,20 +23,20 @@ export function GitHubStats() {
   
   // Theme-specific colors
   const colors = {
-    title: isDark ? "3b82f6" : "2563eb",
-    text: isDark ? "cbd5e1" : "475569",
-    icon: isDark ? "3b82f6" : "2563eb",
-    count: isDark ? "ffffff" : "1e293b",
+    title: isDark ? "ffffff" : "000000",
+    text: isDark ? "a3a3a3" : "525252",
+    icon: isDark ? "ffffff" : "000000",
+    count: isDark ? "ffffff" : "000000",
     bg: "00000000", // Transparent
   }
 
   // github-readme-stats URLs with dynamic colors
-  const statsUrl = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=${isDark ? "dark" : "default"}&hide_border=true&bg_color=${colors.bg}&title_color=${colors.title}&text_color=${colors.text}&icon_color=${colors.icon}&count_color=${colors.count}`
-  const languagesUrl = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${isDark ? "dark" : "default"}&hide_border=true&bg_color=${colors.bg}&title_color=${colors.title}&text_color=${colors.text}`
-  const streakUrl = `https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${isDark ? "dark" : "default"}&hide_border=true&background=${colors.bg}&ring=${colors.title}&fire=${colors.title}&currStreakLabel=${colors.title}&currStreakNum=${colors.count}&sideNums=${colors.count}&sideLabels=${colors.text}`
+  const statsUrl = `https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&theme=${isDark ? "dark" : "default"}&hide_border=true&bg_color=${colors.bg}&title_color=${colors.title}&text_color=${colors.text}&icon_color=${colors.icon}&count_color=${colors.count}`
+  const languagesUrl = `https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${isDark ? "dark" : "default"}&hide_border=true&bg_color=${colors.bg}&title_color=${colors.title}&text_color=${colors.text}`
+  const streakUrl = `https://streak-stats.demolab.com/?user=${username}&theme=${isDark ? "dark" : "default"}&hide_border=true&background=${colors.bg}&ring=${colors.title}&fire=${colors.title}&currStreakLabel=${colors.title}&currStreakNum=${colors.count}&sideNums=${colors.count}&sideLabels=${colors.text}`
 
   return (
-    <section id="github" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="github" className="py-12 md:py-20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -78,7 +78,7 @@ export function GitHubStats() {
                   <img 
                     src={statsUrl} 
                     alt="GitHub Stats" 
-                    className="w-full h-auto max-w-full"
+                    className="w-full h-auto max-w-full grayscale opacity-90"
                   />
                 </div>
               </div>
@@ -88,7 +88,7 @@ export function GitHubStats() {
                   <img 
                     src={streakUrl} 
                     alt="GitHub Streak" 
-                    className="w-full h-auto max-w-full"
+                    className="w-full h-auto max-w-full grayscale opacity-90"
                   />
                 </div>
               </div>
@@ -105,7 +105,7 @@ export function GitHubStats() {
                 <img 
                   src={languagesUrl} 
                   alt="Top Languages" 
-                  className="w-full h-auto max-w-full"
+                  className="w-full h-auto max-w-full grayscale opacity-90"
                 />
               </div>
             </motion.div>

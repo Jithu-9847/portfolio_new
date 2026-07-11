@@ -10,7 +10,7 @@ export function Resume() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="resume" className="py-24 md:py-32 relative bg-muted/30">
+    <section id="resume" className="py-12 md:py-20 relative bg-muted/30">
       {/* Top and bottom borders */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />

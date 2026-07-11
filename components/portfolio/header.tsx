@@ -48,22 +48,22 @@ export function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`ml-auto md:mx-auto max-w-fit px-2 py-2 rounded-full border border-border/40 transition-all duration-300 ${
+        className={`mx-auto w-[calc(100%-3rem)] md:w-auto md:max-w-fit px-2 py-2 rounded-full border border-border/40 transition-all duration-300 ${
           isScrolled 
             ? "bg-background/70 backdrop-blur-xl shadow-xl shadow-black/5" 
             : "bg-background/40 backdrop-blur-md"
         }`}
       >
-        <div className="flex items-center gap-2 translate-z-0">
-          {/* Logo First - Hidden on mobile */}
-          <div className="hidden md:flex items-center">
+        <div className="flex items-center gap-2 translate-z-0 w-full justify-between md:justify-start">
+          {/* Logo First - Visible on all screens */}
+          <div className="flex items-center">
             <motion.a
               href="#home"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold text-lg border border-primary/20 shadow-md shadow-primary/5"
+              className="flex items-center overflow-clip justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold text-lg border border-primary/20 shadow-md shadow-primary/5 hover:bg-gray transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>J</span>
+              <img src="./JithuGirish.png" alt="Logo" width={40} height={40} />
             </motion.a>
           </div>
 
