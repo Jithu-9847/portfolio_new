@@ -71,7 +71,7 @@ export function Hero() {
                       <Gamepad2 className="w-5 h-5 text-primary-foreground" />
                     </span>
                     <span className="text-foreground font-medium group-hover:text-primary transition-colors">
-                      Explore Island
+                      Explore 3D Portfolio
                     </span>
                   </Link>
                   <a
