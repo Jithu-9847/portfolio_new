@@ -4,10 +4,12 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { FileText, Download, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { portfolioData } from "@/lib/portfolio-data"
 
 export function Resume() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { resume } = portfolioData
 
   return (
     <section id="resume" className="py-12 md:py-20 relative bg-muted/30">
@@ -46,15 +48,15 @@ export function Resume() {
             </div>
             
             <div className="text-left flex-1">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">Jithu Girish - Resume</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{resume.title}</h3>
               <p className="text-muted-foreground mb-6 max-w-sm">
-                Full-Stack Web & Flutter Developer with a passion for cybersecurity and AI.
+                {resume.description}
               </p>
               
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="gap-2 bg-primary hover:bg-primary/90">
                   <a 
-                    href="/JITHU_GIRISH_RESUME.pdf" 
+                    href={resume.file} 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
@@ -64,8 +66,8 @@ export function Resume() {
                 </Button>
                 <Button asChild variant="outline" size="lg" className="gap-2 border-border hover:border-primary hover:text-white">
                   <a 
-                    href="/JITHU_GIRISH_RESUME.pdf" 
-                    download="JITHU_GIRISH_RESUME.pdf"
+                    href={resume.file} 
+                    download={resume.downloadName}
                   >
                     <Download className="w-5 h-5" />
                     Download PDF

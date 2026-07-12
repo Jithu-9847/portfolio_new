@@ -8,12 +8,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
 import { sendEmail } from "@/app/actions"
+import { portfolioData } from "@/lib/portfolio-data"
 
 export function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [isPending, setIsPending] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const { contact } = portfolioData
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -81,14 +83,13 @@ export function Contact() {
                 Get in touch
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Whether you have a question, want to start a project, or simply want to connect, 
-                feel free to reach out. I&apos;m always open to discussing new projects and creative ideas.
+                {contact.intro}
               </p>
             </div>
 
             <div className="space-y-6">
               <motion.a
-                href="mailto:jithu.girish.dev@gmail.com"
+                href={`mailto:${contact.email}`}
                 className="flex items-center gap-4 group"
                 whileHover={{ x: 8 }}
               >
@@ -97,7 +98,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">jithu.girish.dev@gmail.com</p>
+                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">{contact.email}</p>
                 </div>
               </motion.a>
 
@@ -112,7 +113,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">+91 73060 89306</p>
+                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">{contact.phone}</p>
                 </div>
               </motion.div>
 
@@ -125,7 +126,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium text-foreground">Pathanamthitta, Kerala, India</p>
+                  <p className="font-medium text-foreground">{contact.location}</p>
                 </div>
               </motion.div>
             </div>
@@ -229,4 +230,3 @@ export function Contact() {
     </section>
   )
 }
-

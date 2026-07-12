@@ -6,91 +6,14 @@ import { ExternalLink, Github, Smartphone, Globe, Briefcase, Star, X } from "luc
 import { Button } from "@/components/ui/button"
 import { TiltCard } from "./tilt-card"
 import Image from "next/image"
-
-const projects = [
-  {
-    title: "NoteNest",
-    description:
-      "A real-time collaborative note-sharing platform for students. Built with React.js, Tailwind CSS, and Firebase.",
-    tags: ["React.js", "Tailwind CSS", "Firebase"],
-    type: "web",
-    image: "/projects/personal/web/notenest_20.png",
-    liveUrl: "https://demo.example.com/notenest",
-    githubUrl: "https://github.com/jithugirish/notenest",
-  },
-  {
-    title: "PDFly App",
-    description:
-      "A mobile app providing various PDF tools for seamless document management. Developed using Flutter and Google Project IDX.",
-    tags: ["Flutter", "Project IDX", "Dart"],
-    type: "mobile",
-    image: "/projects/personal/app/pdfly (3).png",
-    githubUrl: "https://github.com/jithugirish/pdfly",
-  },
-  {
-    title: "Note Nest Bot",
-    description:
-      "A Telegram bot that lets students quickly access study notes. Powered by Node.js and Firebase Firestore.",
-    tags: ["Node.js", "Telegram API", "Firestore"],
-    type: "web",
-    image: "/projects/personal/web/bot.png",
-    liveUrl: "https://t.me/notenest_bot",
-    githubUrl: "https://github.com/jithugirish/notenest-bot",
-  },
-  {
-    title: "Flora",
-    description:
-      "A mobile application designed to simplify and encourage plastic collection for environmental sustainability.",
-    tags: ["Flutter", "Firebase", "Environmental"],
-    type: "mobile",
-    image: "/projects/personal/app/flora.png",
-    liveUrl: "#",
-    githubUrl: "https://github.com/jithugirish/flora",
-  },
-  {
-    title: "Eco-life",
-    description:
-      "A platform promoting eco-friendly living with resources and tips for a sustainable lifestyle.",
-    tags: ["HTML", "CSS", "JS", "Firebase"],
-    type: "web",
-    image: "/projects/personal/web/ecolife.png",
-    
-    githubUrl: "https://github.com/jithugirish/ecolife",
-  },
-  {
-    title: "Park-a-lot",
-    description:
-      "An online parking slot booking website to streamline urban parking management.",
-    tags: ["React.js", "Firebase Realtime DB"],
-    type: "web",
-    image: "/projects/personal/web/park (1).png",
-    githubUrl: "https://github.com/jithugirish/parkalot",
-  },
-  {
-    title: "TeamUp",
-    description:
-      "A collaborative platform for teams to build and manage projects together efficiently.",
-    tags: ["Flutter", "Firebase", "Collaboration"],
-    type: "mobile",
-    image: "/projects/personal/app/teamup.jpeg",
-    githubUrl: "https://github.com/jithugirish/teamup",
-  },
-  {
-    title: "Surge",
-    description:
-      "A comprehensive management system for organizational events and member achievements.",
-    tags: ["React Native", "Firestore", "Tailwind CSS"],
-    type: "client",
-    image: "/projects/client/surge.jpeg",
-    rating: 5,
-  },
-]
+import { portfolioData, type PortfolioProject } from "@/lib/portfolio-data"
 
 export function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [filter, setFilter] = useState<"all" | "web" | "mobile">("all")
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const { projects, socials } = portfolioData
 
   const personalProjects = projects.filter(p => p.type === "web" || p.type === "mobile")
   const filteredPersonal = filter === "all" 
@@ -190,7 +113,7 @@ export function Projects() {
           className="mt-16 text-center"
         >
           <Button asChild variant="outline" size="lg" className="gap-2 border-border hover:border-primary hover:text-white">
-            <a href="https://github.com/Jithu-9847" target="_blank" rel="noopener noreferrer">
+            <a href={socials.github} target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5" />
               View All Projects on GitHub
             </a>
@@ -239,7 +162,7 @@ function ProjectCard({
   project, 
   onImageClick 
 }: { 
-  project: typeof projects[0],
+  project: PortfolioProject,
   onImageClick: (img: string) => void
 }) {
   return (

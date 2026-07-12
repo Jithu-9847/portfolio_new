@@ -2,47 +2,12 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-
-const skillCategories = [
-  {
-    title: "Frontend",
-    skills: [
-      { name: "React", level: 85 },
-      { name: "JavaScript", level: 90 },
-      { name: "Tailwind CSS", level: 80 },
-      { name: "HTML5 / CSS3", level: 95 },
-    ],
-  },
-  {
-    title: "Mobile & AI",
-    skills: [
-      { name: "Flutter", level: 70 },
-      { name: "OpenCV", level: 40 },
-      { name: "Dart", level: 75 },
-      { name: "React Native", level: 50 },
-    ],
-  },
-  {
-    title: "Development Tools",
-    skills: [
-      { name: "Git / GitHub", level: 90 },
-      { name: "VS Code", level: 90 },
-      { name: "Figma", level: 60 },
-    ],
-  },
-  {
-    title: "Programming",
-    skills: [
-      { name: "Python", level: 80 },
-      { name: "C", level: 85 },
-      { name: "Java", level: 75 },
-    ],
-  },
-]
+import { portfolioData } from "@/lib/portfolio-data"
 
 export function Skills() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { skills: skillCategories, dailyTech } = portfolioData
 
   return (
     <section id="skills" className="py-12 md:py-20 relative">
@@ -115,14 +80,7 @@ export function Skills() {
         >
           <p className="text-sm text-muted-foreground mb-6">Technologies I work with daily</p>
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "React",
-              "Flutter",
-              "Tailwind",
-              "Node.js",
-              "Firebase",
-              "Git",
-            ].map((tech, index) => (
+            {dailyTech.map((tech, index) => (
               <motion.span
                 key={tech}
                 initial={{ opacity: 0, scale: 0.8 }}

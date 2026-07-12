@@ -1,10 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Play, ArrowDown } from "lucide-react"
+import { Gamepad2, Play, ArrowDown } from "lucide-react"
+import Link from "next/link"
 import { TextScramble } from "./text-scramble"
+import { portfolioData } from "@/lib/portfolio-data"
 
 export function Hero() {
+  const { profile } = portfolioData
+
   return (
     <section
       id="home"
@@ -29,7 +33,7 @@ export function Hero() {
                   transition={{ delay: 0.2 }}
                   className="text-4xl md:text-5xl lg:text-6xl font-light text-muted-foreground"
                 >
-                  I&apos;m Jithu Girish
+                  I&apos;m {profile.name}
                 </motion.p>
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
@@ -37,7 +41,7 @@ export function Hero() {
                   transition={{ delay: 0.3, duration: 0.6 }}
                   className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
                 >
-                  Developer
+                  {profile.role}
                 </motion.h1>
               </div>
 
@@ -48,7 +52,7 @@ export function Hero() {
                 transition={{ delay: 0.5 }}
                 className="text-muted-foreground text-base md:text-lg max-w-md"
               >
-                Passionate about building modern websites, mobile apps, and exploring AI technologies to create user-focused digital experiences.
+                {profile.tagline}
               </motion.p>
 
               {/* CTA Button */}
@@ -58,17 +62,30 @@ export function Hero() {
                 transition={{ delay: 0.7 }}
                 className="pt-4"
               >
-                <a
-                  href="#about"
-                  className="inline-flex items-center gap-3 group"
-                >
-                  <span className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <Play className="w-5 h-5 text-primary-foreground fill-current ml-0.5" />
-                  </span>
-                  <span className="text-foreground font-medium group-hover:text-primary transition-colors">
-                    about me
-                  </span>
-                </a>
+                <div className="flex flex-wrap items-center gap-5">
+                  <Link
+                    href="/island"
+                    className="inline-flex items-center gap-3 group"
+                  >
+                    <span className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <Gamepad2 className="w-5 h-5 text-primary-foreground" />
+                    </span>
+                    <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                      Explore Island
+                    </span>
+                  </Link>
+                  <a
+                    href="#about"
+                    className="inline-flex items-center gap-3 group"
+                  >
+                    <span className="w-12 h-12 rounded-lg bg-secondary border border-border flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <Play className="w-5 h-5 text-foreground fill-current ml-0.5" />
+                    </span>
+                    <span className="text-muted-foreground font-medium group-hover:text-foreground transition-colors">
+                      about me
+                    </span>
+                  </a>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -90,8 +107,8 @@ export function Hero() {
               <div className="relative w-full max-w-[340px] h-[450px] sm:max-w-none sm:w-[400px] sm:h-[550px] md:w-[550px] md:h-[700px] lg:w-[700px] lg:h-[850px] overflow-hidden rounded-2xl border border-border/50 mx-auto">
                 <div className="absolute inset-0 bg-linear-to-br from-muted/50 to-muted/20" />
                 <motion.img
-                  src="/JithuGirish.png"
-                  alt="Jithu Girish"
+                  src={profile.portrait}
+                  alt={profile.name}
                   className="w-full h-full object-cover opacity-90 grayscale transition-all duration-700"
                   initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 0.9 }}

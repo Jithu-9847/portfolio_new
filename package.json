@@ -39,6 +39,9 @@
     "@radix-ui/react-tooltip": "1.2.8",
     "@react-email/components": "^1.0.12",
     "@react-email/render": "^2.0.7",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@types/three": "^0.185.1",
     "@vercel/analytics": "1.6.1",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
@@ -62,6 +65,7 @@
     "resend": "^6.12.0",
     "sonner": "^1.7.1",
     "tailwind-merge": "^3.3.1",
+    "three": "^0.185.1",
     "vaul": "^1.1.2",
     "zod": "^3.24.1"
   },

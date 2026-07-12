@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Github, Linkedin, Instagram, Heart, Mail, MapPin, ArrowUp, ExternalLink } from "lucide-react"
-
-const socialLinks = [
-  { icon: Github, href: "https://github.com/Jithu-9847", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/jithugirish1", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/jithu_girish_", label: "Instagram" },
-]
+import { portfolioData } from "@/lib/portfolio-data"
 
 const quickLinks = [
   { name: "Home", href: "#home" },
@@ -25,6 +20,12 @@ const resources = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const { contact, profile, socials } = portfolioData
+  const socialLinks = [
+    { icon: Github, href: socials.github, label: "GitHub" },
+    { icon: Linkedin, href: socials.linkedin, label: "LinkedIn" },
+    { icon: Instagram, href: socials.instagram, label: "Instagram" },
+  ]
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -46,12 +47,12 @@ export function Footer() {
                
             >
               <div className="flex items-center overflow-clip justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold text-lg border border-primary/20 group-hover:bg-gray group-hover:text-primary-foreground transition-all duration-300">
-                <img src="./JithuGirish.png" alt="Logo" width={40} height={40} />
+                <img src={profile.portrait} alt="Logo" width={40} height={40} />
               </div>
-              <span className="text-xl font-bold text-foreground">Jithu Girish</span>
+              <span className="text-xl font-bold text-foreground">{profile.name}</span>
             </motion.a>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Web & App Developer passionate about building seamless digital experiences and innovative solutions.
+              {profile.tagline}
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -112,19 +113,19 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">Get in Touch</h3>
             <div className="space-y-4">
               <a 
-                href="mailto:jithu.girish.dev@gmail.com" 
+                href={`mailto:${contact.email}`} 
                 className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                   <Mail className="w-4 h-4" />
                 </div>
-                jithu.girish.dev@gmail.com
+                {contact.email}
               </a>
               <div className="flex items-center gap-3 text-sm text-muted-foreground group">
                 <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </div>
-                Pathanamthitta, Kerala, India
+                {contact.location}
               </div>
             </div>
             
@@ -140,7 +141,7 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-muted-foreground order-2 md:order-1">
-            &copy; {currentYear} Jithu Girish. All rights reserved.
+            &copy; {currentYear} {profile.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-sm text-muted-foreground order-1 md:order-2">
             <span>Made with</span>
@@ -150,7 +151,7 @@ export function Footer() {
             >
               <Heart className="w-4 h-4 text-primary fill-current" />
             </motion.div>
-            <span>by Jithu Girish</span>
+            <span>by {profile.name}</span>
           </div>
         </div>
       </div>
