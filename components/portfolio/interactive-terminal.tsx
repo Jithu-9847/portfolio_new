@@ -134,7 +134,7 @@ export function InteractiveTerminal() {
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="fixed bottom-24 right-6 z-50 w-[90vw] max-w-md bg-[#1a1a1a] rounded-xl overflow-hidden shadow-2xl border border-neutral-800"
+            className="fixed bottom-24 right-4 left-4 sm:left-auto sm:right-6 z-50 w-auto sm:w-[90vw] sm:max-w-md bg-[#1a1a1a] rounded-xl overflow-hidden shadow-2xl border border-neutral-800"
           >
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-[#2a2a2a] border-b border-neutral-800">
@@ -166,7 +166,7 @@ export function InteractiveTerminal() {
             {/* Terminal Body */}
             <div
               ref={terminalRef}
-              className="h-72 overflow-y-auto p-4 font-mono text-sm"
+              className="h-72 overflow-y-auto overflow-x-auto p-4 font-mono text-xs sm:text-sm"
               onClick={() => inputRef.current?.focus()}
             >
               {history.map((item, i) => (

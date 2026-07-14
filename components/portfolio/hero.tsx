@@ -15,7 +15,7 @@ export function Hero() {
       className="min-h-screen flex items-center relative overflow-hidden"
     >
       {/* Main content container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8  w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full pt-28 pb-16 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[70vh]">
           {/* Left side - Text content */}
           <div className="flex flex-col justify-center">
@@ -31,7 +31,7 @@ export function Hero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-light text-muted-foreground"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-muted-foreground"
                 >
                   I&apos;m {profile.name}
                 </motion.p>
@@ -39,7 +39,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
-                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
                 >
                   {profile.role}
                 </motion.h1>
@@ -104,7 +104,7 @@ export function Hero() {
               <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
               
               {/* Profile image with grayscale effect */}
-              <div className="relative w-full max-w-[340px] h-[450px] sm:max-w-none sm:w-[400px] sm:h-[550px] md:w-[550px] md:h-[700px] lg:w-[700px] lg:h-[850px] overflow-hidden rounded-2xl border border-border/50 mx-auto">
+              <div className="relative w-full max-w-full aspect-[3/4] sm:aspect-auto sm:max-w-[400px] sm:h-[520px] md:max-w-[500px] md:h-[650px] lg:max-w-none lg:w-[550px] lg:h-[720px] xl:w-[680px] xl:h-[820px] overflow-hidden rounded-2xl border border-border/50 mx-auto">
                 <div className="absolute inset-0 bg-linear-to-br from-muted/50 to-muted/20" />
                 <motion.img
                   src={profile.portrait}
@@ -137,21 +137,8 @@ export function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
-      >
-        <motion.a
-          href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        >
-          <ArrowDown className="w-5 h-5" />
-        </motion.a>
-      </motion.div>
+       
+       
     </section>
   )
 }

@@ -48,15 +48,15 @@ export function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`mx-auto w-[calc(100%-3rem)] md:w-auto md:max-w-fit px-2 py-2 rounded-full border border-border/40 transition-all duration-300 ${
+        className={`ml-auto md:mx-auto w-fit px-2 py-2 rounded-full transition-all duration-300 md:border md:border-border/40 ${
           isScrolled 
-            ? "bg-background/70 backdrop-blur-xl shadow-xl shadow-black/5" 
-            : "bg-background/40 backdrop-blur-md"
+            ? "bg-transparent md:bg-background/70 backdrop-blur-none md:backdrop-blur-xl shadow-none md:shadow-xl md:shadow-black/5" 
+            : "bg-transparent md:bg-background/40 backdrop-blur-none md:backdrop-blur-md"
         }`}
       >
         <div className="flex items-center gap-2 translate-z-0 w-full justify-between md:justify-start">
-          {/* Logo First - Visible on all screens */}
-          <div className="flex items-center">
+          {/* Logo First - Hidden on mobile */}
+          <div className="hidden md:flex items-center">
             <motion.a
               href="#home"
               className="flex items-center overflow-clip justify-center w-10 h-10 rounded-full bg-primary/10 text-primary font-bold text-lg border border-primary/20 shadow-md shadow-primary/5 hover:bg-gray transition-colors"
@@ -95,7 +95,7 @@ export function Header() {
           {/* Mobile Menu Trigger & Right spacing */}
           <div className="flex items-center ml-auto pl-2 md:pl-0">
             <motion.button
-              className="md:hidden w-10 h-10 rounded-full flex items-center justify-center hover:bg-muted transition-colors"
+              className="md:hidden w-12 h-12 rounded-full flex items-center justify-center hover:bg-muted transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               whileTap={{ scale: 0.9 }}
             >

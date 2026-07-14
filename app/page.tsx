@@ -11,10 +11,12 @@ import { ScrollProgress } from "@/components/portfolio/scroll-progress"
 import { Gallery } from "@/components/portfolio/gallery"
 import { Resume } from "@/components/portfolio/resume"
 import { GitHubStats } from "@/components/portfolio/github-stats"
+import { LoadingScreen } from "@/components/portfolio/loading-screen"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <LoadingScreen />
       <CustomCursor />
       <ScrollProgress />
       <Header />

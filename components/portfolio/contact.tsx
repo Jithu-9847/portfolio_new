@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Mail, MapPin, Send, CheckCircle, Loader2,Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,6 +16,11 @@ export function Contact() {
   const [isPending, setIsPending] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { contact } = portfolioData
+  const [mountedAt, setMountedAt] = useState<number>(0)
+
+  useEffect(() => {
+    setMountedAt(Date.now())
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -141,6 +146,19 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field to block bot spam */}
+              <input type="hidden" name="form_timestamp" value={mountedAt} />
+              <div className="absolute opacity-0 -z-10 pointer-events-none h-0 w-0 overflow-hidden" aria-hidden="true">
+                <label htmlFor="hp_field">Do not fill this out if you are human</label>
+                <input
+                  id="hp_field"
+                  name="hp_field"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground">
