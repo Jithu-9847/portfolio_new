@@ -6,6 +6,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    inlineCss: true,
+  },
+  productionBrowserSourceMaps: true,
+  compress: true,
+  trailingSlash: false,
 }
 
 export default nextConfig

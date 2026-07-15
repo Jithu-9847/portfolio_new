@@ -1,17 +1,19 @@
 import { Header } from "@/components/portfolio/header"
 import { Hero } from "@/components/portfolio/hero"
-import { About } from "@/components/portfolio/about"
-import { Skills } from "@/components/portfolio/skills"
-import { Projects } from "@/components/portfolio/projects"
-import { Contact } from "@/components/portfolio/contact"
-import { Footer } from "@/components/portfolio/footer"
 import { CustomCursor } from "@/components/portfolio/custom-cursor"
-import { InteractiveTerminal } from "@/components/portfolio/interactive-terminal"
 import { ScrollProgress } from "@/components/portfolio/scroll-progress"
-import { Gallery } from "@/components/portfolio/gallery"
-import { Resume } from "@/components/portfolio/resume"
-import { GitHubStats } from "@/components/portfolio/github-stats"
 import { LoadingScreen } from "@/components/portfolio/loading-screen"
+import dynamic from "next/dynamic"
+
+const About = dynamic(() => import("@/components/portfolio/about").then((mod) => mod.About))
+const Skills = dynamic(() => import("@/components/portfolio/skills").then((mod) => mod.Skills))
+const GitHubStats = dynamic(() => import("@/components/portfolio/github-stats").then((mod) => mod.GitHubStats))
+const Projects = dynamic(() => import("@/components/portfolio/projects").then((mod) => mod.Projects))
+const Gallery = dynamic(() => import("@/components/portfolio/gallery").then((mod) => mod.Gallery))
+const Resume = dynamic(() => import("@/components/portfolio/resume").then((mod) => mod.Resume))
+const Contact = dynamic(() => import("@/components/portfolio/contact").then((mod) => mod.Contact))
+const Footer = dynamic(() => import("@/components/portfolio/footer").then((mod) => mod.Footer))
+const InteractiveTerminal = dynamic(() => import("@/components/portfolio/interactive-terminal").then((mod) => mod.InteractiveTerminal))
 
 export default function Home() {
   return (

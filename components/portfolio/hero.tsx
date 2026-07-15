@@ -3,8 +3,11 @@
 import { motion } from "framer-motion"
 import { Gamepad2, Play, ArrowDown } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { TextScramble } from "./text-scramble"
 import { portfolioData } from "@/lib/portfolio-data"
+
+const MotionImage = motion.create(Image)
 
 export function Hero() {
   const { profile } = portfolioData
@@ -106,9 +109,12 @@ export function Hero() {
               {/* Profile image with grayscale effect */}
               <div className="relative w-full max-w-full aspect-[3/4] sm:aspect-auto sm:max-w-[400px] sm:h-[520px] md:max-w-[500px] md:h-[650px] lg:max-w-none lg:w-[550px] lg:h-[720px] xl:w-[680px] xl:h-[820px] overflow-hidden rounded-2xl border border-border/50 mx-auto">
                 <div className="absolute inset-0 bg-linear-to-br from-muted/50 to-muted/20" />
-                <motion.img
+                <MotionImage
                   src={profile.portrait}
                   alt={profile.name}
+                  fill
+                  priority
+                  sizes="(max-w-[400px]) 100vw, (max-w-[500px]) 400px, (max-w-[680px]) 550px, 680px"
                   className="w-full h-full object-cover opacity-90 grayscale transition-all duration-700"
                   initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 0.9 }}
