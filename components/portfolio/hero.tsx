@@ -101,13 +101,13 @@ export function Hero() {
             className="relative flex items-center justify-center lg:justify-end"
           >
             {/* Image container with gradient fade */}
-            <div className="relative">
+            <div className="relative w-full max-w-[400px] sm:max-w-none">
               {/* Gradient overlay for seamless blend */}
               <div className="absolute inset-0 bg-linear-to-r from-background via-transparent to-transparent z-10 pointer-events-none" />
               <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
               
               {/* Profile image with grayscale effect */}
-              <div className="relative w-full max-w-full aspect-[3/4] sm:aspect-auto sm:max-w-[400px] sm:h-[520px] md:max-w-[500px] md:h-[650px] lg:max-w-none lg:w-[550px] lg:h-[720px] xl:w-[680px] xl:h-[820px] overflow-hidden rounded-2xl border border-border/50 mx-auto">
+              <div className="relative isolate w-full max-w-full aspect-3/4 sm:aspect-auto sm:max-w-[400px] sm:h-[520px] md:max-w-[500px] md:h-[650px] lg:max-w-[500px] lg:w-full lg:h-[650px] xl:max-w-[600px] xl:w-full xl:h-[750px] overflow-hidden rounded-2xl border border-border/50 mx-auto">
                 <div className="absolute inset-0 bg-linear-to-br from-muted/50 to-muted/20" />
                 <MotionImage
                   src={profile.portrait}
